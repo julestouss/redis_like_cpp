@@ -4,31 +4,52 @@
 #include <vector>
 #include <sstream>
 
-std::vector<std::string> parsing_str(std::string& message){
-  std::vector<std::string> parsed_rqt;
+class message {
+  private:
+    std::string content;
+    std::vector<std::string> parsed_rqt;
+  public:
+    message() = default;
+    ~message() = default;
 
-    std::istringstream iss(message);
-    std::string rqt_word;
-
-    while(iss >> rqt_word){
-      parsed_rqt.push_back(rqt_word);
+    void read(){
+      std::getline(std::cin, content);
     }
-    return parsed_rqt;
-}
+
+    const std::string& getContent() const {
+      return content;
+    }
+
+    const std::vector<std::string>& getParsed() const {
+      return parsed_rqt;
+    }
+
+    std::vector<std::string> parsing_str(){
+
+      std::istringstream iss(content);
+      std::string rqt_word;
+
+      while(iss >> rqt_word){
+        parsed_rqt.push_back(rqt_word);
+      }
+      return parsed_rqt;
+    }
+};
+
 
 int main() {
+    message input_usr{};
     while (true) {
       std::cout << ">> ";
-
-      std::unique_ptr<std::string> message = std::make_unique<std::string>();
-      std::getline(std::cin, *message);
+      input_usr.read();
         
-      if (*message == "exit") {
+      if (input_usr.getContent() == "exit") {
           break;
       }
-      std::vector<std::string> parsed_request = parsing_str(*message);
+      input_usr.parsing_str();
 
-      for(const auto& word : parsed_request){
+
+      for(const auto& word : input_usr.getParsed()){
         std::cout << word << ", ";
       }
       std::cout << std::endl;
