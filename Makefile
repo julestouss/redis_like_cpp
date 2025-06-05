@@ -1,5 +1,5 @@
 GPP=g++
-FLAGS=-I ./src/header
+FLAGS=-I ./src/header -std=c++20
 OBJDIR=obj
 BIN=bin/main
 SRCDIR=src

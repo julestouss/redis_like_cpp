@@ -10,10 +10,30 @@ void data::setFunc(const std::vector<std::string>& query){
   }
   const std::string& key = query[1];
   const std::string& value = query[2];
+  const std::string& arg = query[3];
+  
+  if(!data_map.contains(key) || arg.compare("-u")==0 || arg.compare("--update")==0){
+    if (std::all_of(value.begin(), value.end(), ::isdigit)) {
+      data_map[key] = std::stoi(value);
+    }else {
+      data_map[key] = value;
+    }
+  } else{
+    std::cout << "Key already existing, if you want to SET anyway use -u or --update";
+  }
+}
 
-  if (std::all_of(value.begin(), value.end(), ::isdigit)) {
-    data_map[key] = std::stoi(value); // Stocker un int
-  }else {
-    data_map[key] = value; // Stocker une string
+void data::getFunc(const std::vector<std::string>& query){
+  if(query.size()<2){
+    std::cout << "Pas assez d'arguments" << std::endl;
+    return;
+  }
+
+  const std::string& key = query[1];
+
+  if(data_map.contains(key)){
+    std::visit([](auto&& arg) {
+        std::cout << arg;
+    }, data_map[key]);
   }
 }
