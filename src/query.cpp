@@ -38,11 +38,13 @@ std::vector<std::string> query::parsing_str(){
   return parsed_rqt;
 }
 
-void query::handle_query(data& d){
+int query::handle_query(data& d){
   if(cmd_map.contains(parsed_rqt[0])){
     cmd_map[parsed_rqt[0]](d, parsed_rqt);
+    return 1;
   }
   else{
     std::cout << "Unknown command : " << parsed_rqt[0];
+    return 2;
   }
 }

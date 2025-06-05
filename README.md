@@ -14,7 +14,7 @@ A redis like database in C++
 
 - [ ] TODO : fonction de création de snapshot
 
-- [ ] TODO : écriture de toutes les commandes dans un fichier de log
+- [X] DONE : écriture de toutes les commandes dans un fichier de log
 
 - [ ] TODO : création d’un client et d’un serveur afin de pouvoir créer un service
 

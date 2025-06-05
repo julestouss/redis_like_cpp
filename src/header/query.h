@@ -21,5 +21,5 @@ public:
   const std::vector<std::string>& getParsed() const;
   std::vector<std::string> parsing_str();
   
-  void handle_query(data& d);
+  int handle_query(data& d);
 };

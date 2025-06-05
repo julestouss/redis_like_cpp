@@ -8,7 +8,9 @@
 #include <unordered_map>
 #include <variant>
 #include <algorithm>
+#include <ctime>
+#include <fstream>
 
 #include "data.h"
 #include "query.h"
-
+#include "log.h"
