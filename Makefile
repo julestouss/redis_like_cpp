@@ -4,7 +4,7 @@ OBJDIR=obj
 BIN=bin/main
 SRCDIR=src
 
-SRCS=$(SRCDIR)/main.cpp $(SRCDIR)/query.cpp
+SRCS=$(SRCDIR)/main.cpp $(SRCDIR)/query.cpp $(SRCDIR)/data.cpp
 OBJS=$(SRCS:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
 
 all: $(BIN)
