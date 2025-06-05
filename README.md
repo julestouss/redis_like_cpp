@@ -10,7 +10,7 @@ A redis like database in C++
 
 - [X] DONE : ajout de la commande GET
 
-- [X] DOING : ajout de la commande DEL
+- [X] DONE : ajout de la commande DEL
 
 - [ ] TODO : fonction de création de snapshot
 

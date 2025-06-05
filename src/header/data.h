@@ -1,9 +1,5 @@
-#include <unordered_map>
-#include <string>
-#include <variant>
-#include <vector>
-#include <iostream>
-#include <algorithm>
+#pragma once
+#include "constant.h"
 
 class data{
 private:

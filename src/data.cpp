@@ -37,3 +37,16 @@ void data::getFunc(const std::vector<std::string>& query){
     }, data_map[key]);
   }
 }
+
+void data::delFunc(const std::vector<std::string>& query){
+  if(query.size()<2){
+    std::cout << "Pas assez d'arguments" << std::endl;
+    return;
+  }
+  const std::string& key = query[1];
+
+  if(data_map.contains(key)){
+    data_map.erase(key);
+  }
+}
+

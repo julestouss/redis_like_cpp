@@ -1,7 +1,4 @@
-#include <iostream>
-#include <string>
-#include "query.h"
-#include "data.h"
+#include "constant.h"
 
 int main() {
   query input_usr{};
@@ -14,14 +11,7 @@ int main() {
         break;
     }
     input_usr.parsing_str();
-    const auto& parsed_query = input_usr.getParsed();
-
-    if(!parsed_query.empty() && parsed_query[0].compare("SET") == 0){
-      data_1.setFunc(parsed_query);
-    }
-    if(!parsed_query.empty() && parsed_query[0].compare("GET") == 0){
-      data_1.getFunc(parsed_query);
-    }
+    input_usr.handle_query(data_1);
     std::cout << std::endl;
   }
   return 0;

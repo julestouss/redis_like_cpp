@@ -21,4 +21,4 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 
 # Nettoyage
 clean:
-	rm -rf $(OBJDIR) $(BIN)
+	rm -rf $(OBJDIR)/* $(BIN)
